@@ -1,0 +1,5 @@
+{
+  "name": "Cartoon Flap AI",
+  "description": "A vibrant, cartoonish Flappy Bird clone featuring smooth animations, parallax backgrounds, and AI-powered sassy commentary upon game over.",
+  "requestFramePermissions": []
+}
