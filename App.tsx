@@ -1,15 +1,15 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import Bird from './components/Bird';
-import Pipe from './components/Pipe';
-import GameOverlay from './components/GameOverlay';
+import Bird from './components/Bird.tsx';
+import Pipe from './components/Pipe.tsx';
+import GameOverlay from './components/GameOverlay.tsx';
 import { 
   GAME_WIDTH, GAME_HEIGHT, GRAVITY, JUMP_STRENGTH, 
   PIPE_SPEED, PIPE_SPAWN_RATE, PIPE_WIDTH, PIPE_GAP, 
   BIRD_WIDTH, BIRD_HEIGHT, GROUND_HEIGHT, GameStatus 
-} from './constants';
-import { PipeData } from './types';
-import { getDeathCommentary } from './services/geminiService';
+} from './constants.ts';
+import { PipeData } from './types.ts';
+import { getDeathCommentary } from './services/geminiService.ts';
 
 const App: React.FC = () => {
   const [status, setStatus] = useState<GameStatus>(GameStatus.START);
@@ -22,7 +22,7 @@ const App: React.FC = () => {
   const [commentary, setCommentary] = useState("Engine check complete...");
   const [isFlapping, setIsFlapping] = useState(false);
 
-  const requestRef = useRef<number>();
+  const requestRef = useRef<number>(null);
   const lastTimeRef = useRef<number>(0);
   const lastPipeTimeRef = useRef<number>(0);
   const gameActiveRef = useRef(false);
@@ -115,7 +115,6 @@ const App: React.FC = () => {
         .filter(pipe => pipe.x + PIPE_WIDTH > -50);
 
       for (const pipe of updated) {
-        // Plane hitbox is wider (BIRD_WIDTH) but slightly thinner than the bird was
         const birdLeft = GAME_WIDTH * 0.2 - BIRD_WIDTH / 2 + 10;
         const birdRight = GAME_WIDTH * 0.2 + BIRD_WIDTH / 2 - 10;
         const birdTop = birdY - BIRD_HEIGHT / 2 + 8;
@@ -197,10 +196,6 @@ const App: React.FC = () => {
           commentary={commentary}
           onStart={resetGame} 
         />
-      </div>
-      
-      <div className="absolute bottom-4 text-slate-500 font-bold uppercase tracking-widest text-xs">
-        Delta-Time Optimized • {status}
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BIRD_WIDTH, BIRD_HEIGHT } from '../constants';
+import { BIRD_WIDTH, BIRD_HEIGHT } from '../constants.ts';
 
 interface BirdProps {
   y: number;
@@ -18,10 +18,11 @@ const Bird: React.FC<BirdProps> = ({ y, rotation, isFlapping }) => {
         width: BIRD_WIDTH,
         height: BIRD_HEIGHT,
         transform: `translate(-50%, -50%) rotate(${rotation}deg)`,
-        backgroundImage: 'url("./plane.png")',
-        backgroundColor: '#facc15', // Fallback yellow if image fails
-        backgroundSize: '300%', // Scale up to see the details
-        backgroundPosition: '12% 44%', // Target the orange plane '7'
+        // Updated to the exact filename in the GitHub repo screenshot
+        backgroundImage: 'url("./S01_DP2_Transparent_Atlas_08@4x.png")',
+        backgroundColor: '#facc15', 
+        backgroundSize: '300%', 
+        backgroundPosition: '12% 44%', 
         backgroundRepeat: 'no-repeat',
         borderRadius: '8px',
         willChange: 'top, transform',

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { GameStatus } from '../constants';
+import { GameStatus } from '../constants.ts';
 
 interface GameOverlayProps {
   status: GameStatus;
