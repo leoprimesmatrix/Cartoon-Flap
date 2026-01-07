@@ -15,7 +15,7 @@ const Pipe: React.FC<PipeProps> = ({ x, topHeight }) => {
     <>
       {/* Top Pipe */}
       <div
-        className="absolute bg-green-500 border-x-4 border-b-4 border-black rounded-b-xl shadow-inner overflow-visible"
+        className="absolute bg-green-500 border-x-4 border-b-4 border-black rounded-b-xl shadow-[inset_-4px_0_0_rgba(0,0,0,0.1)] overflow-visible"
         style={{
           left: x,
           top: 0,
@@ -23,12 +23,12 @@ const Pipe: React.FC<PipeProps> = ({ x, topHeight }) => {
           height: topHeight,
         }}
       >
-        <div className="absolute -bottom-2 -left-1 w-[calc(100%+8px)] h-8 bg-green-400 border-4 border-black rounded-lg" />
+        <div className="absolute -bottom-2 -left-2 w-[calc(100%+16px)] h-8 bg-green-400 border-4 border-black rounded-lg shadow-md" />
       </div>
 
       {/* Bottom Pipe */}
       <div
-        className="absolute bg-green-500 border-x-4 border-t-4 border-black rounded-t-xl shadow-inner overflow-visible"
+        className="absolute bg-green-500 border-x-4 border-t-4 border-black rounded-t-xl shadow-[inset_-4px_0_0_rgba(0,0,0,0.1)] overflow-visible"
         style={{
           left: x,
           top: bottomTop,
@@ -36,7 +36,7 @@ const Pipe: React.FC<PipeProps> = ({ x, topHeight }) => {
           height: bottomHeight,
         }}
       >
-        <div className="absolute -top-2 -left-1 w-[calc(100%+8px)] h-8 bg-green-400 border-4 border-black rounded-lg" />
+        <div className="absolute -top-2 -left-2 w-[calc(100%+16px)] h-8 bg-green-400 border-4 border-black rounded-lg shadow-md" />
       </div>
     </>
   );
